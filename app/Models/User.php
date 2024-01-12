@@ -44,4 +44,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function bookings() {
+        return $this->belongsTo(Booking::class);
+    }
+
+    public function favorites() {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function reviews() {
+        return $this->hasMany(Review::class);
+    }
 }

@@ -15,4 +15,12 @@ class Review extends Model
         'store_id',
         'user_id'
     ];
+
+    public function stores() {
+        return $this->hasMany(Store::class);
+    }
+
+    public function users() {
+        return $this->hasMany(User::class);
+    }
 }

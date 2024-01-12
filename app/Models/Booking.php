@@ -15,4 +15,12 @@ class Booking extends Model
         'store_id',
         'user_id'
     ];
+
+    public function store() {
+        return $this->belongsTo(Store::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

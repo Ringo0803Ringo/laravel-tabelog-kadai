@@ -20,4 +20,20 @@ class Store extends Model
         'phone_number',
         'holiday'
     ];
+
+    public function bookings() {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function favorites() {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function reviews() {
+        return $this->hasMany(Review::class);
+    }
 }
