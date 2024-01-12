@@ -11,6 +11,8 @@ class Booking extends Model
 
     protected $fillable = [
         'time',
-        'amount'
+        'amount',
+        'store_id',
+        'user_id'
     ];
 }

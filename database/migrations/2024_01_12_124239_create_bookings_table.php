@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->dateTime('time');
             $table->integer('amount');
+            $table->foreignId('store_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
