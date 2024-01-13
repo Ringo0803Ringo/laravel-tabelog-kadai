@@ -19,4 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('user', UserController::class);
+Route::resource('admin', AdminController::class);
+Route::resource('booking', BookingController::class);
+Route::resource('category', CategoryController::class);
+Route::resource('favorite', FavoriteController::class);
+Route::resource('review', ReviewController::class);
+Route::resource('store', StoreController::class);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
