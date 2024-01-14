@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\UserController;
-use App\Http\Controllers\Auth\AdminController;
-use App\Http\Controllers\Auth\BookingController;
-use App\Http\Controllers\Auth\CategoryController;
-use App\Http\Controllers\Auth\FavoriteController;
-use App\Http\Controllers\Auth\ReviewController;
-use App\Http\Controllers\Auth\StoreController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\StoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ Auth::routes();
 
 Route::resource('user', UserController::class)->only(['index','show','edit','update']);
 Route::resource('admin', AdminController::class);
-Route::resource('booking', BookingController::class)->only(['index','show']);
+Route::resource('booking', BookingController::class)->only(['index','show','create','store']);
 Route::resource('category', CategoryController::class)->only(['index','show']);
 Route::resource('favorite', FavoriteController::class)->only(['index','show']);
 Route::resource('review', ReviewController::class);

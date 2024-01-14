@@ -14,7 +14,9 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+        $favorite = Auth::user()->favorite;
+        
+        return view('favorite.index', compact('favorite'));
     }
 
     /**
