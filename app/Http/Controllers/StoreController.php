@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Store;
 
 class StoreController extends Controller
 {
@@ -14,9 +15,10 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $store = Auth::user()->store;
+        $stores = Auth::user()->stores;
+        $stores = Store::all();
  
-         return view('store.index', compact('store'));
+         return view('store.index', compact('stores'));
     }
 
     /**

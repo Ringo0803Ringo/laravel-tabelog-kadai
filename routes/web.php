@@ -35,4 +35,3 @@ Route::resource('review', ReviewController::class);
 Route::resource('store', StoreController::class)->only(['index','show']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
