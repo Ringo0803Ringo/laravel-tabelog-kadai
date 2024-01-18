@@ -14,9 +14,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $review = Auth::user()->review;
         
-        return view('review.index', compact('review'));
     }
 
     /**
@@ -26,7 +24,9 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        $review = Auth::user()->review;
+        
+        return view('review.create', compact('review'));
     }
 
     /**
