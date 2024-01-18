@@ -20,9 +20,9 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('business_hour')->nullable();
             $table->integer('price');
-            $table->integer('postal_code');
+            $table->string('postal_code');
             $table->string('address');
-            $table->integer('phone_number');
+            $table->string('phone_number');
             $table->string('holiday')->nullable();
             $table->timestamps();
         });
