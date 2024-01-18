@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\TopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,15 +21,13 @@ use App\Http\Controllers\StoreController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [TopController::class, 'get_top'])->name('top');
 
 Auth::routes();
 
-Route::resource('user', UserController::class)->only(['index','show','edit','update']);
+Route::resource('user', UserController::class)->only(['show', 'edit','update', 'delete']);
 Route::resource('admin', AdminController::class);
-Route::resource('booking', BookingController::class)->only(['index','show','create','store']);
+Route::resource('booking', BookingController::class)->only(['index','show','create','store','delete']);
 Route::resource('category', CategoryController::class)->only(['index','show']);
 Route::resource('favorite', FavoriteController::class)->only(['index','show']);
 Route::resource('review', ReviewController::class);
