@@ -11,10 +11,11 @@
                         <p class="card-text">{{ $store->description }}</p>
                         <a href="{{ route('store.show', $store) }}" class="btn btn-primary">View Store</a>
                     </div>
+                    <a href="{{ route('store.favorite', $store) }}" class="btn btn-primary">Favorite</a>
+                    </div>
                 </div>
             </div>
         @endforeach
-    </div>
 </div>
 
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Review;
 
 class ReviewController extends Controller
 {
@@ -14,7 +15,9 @@ class ReviewController extends Controller
      */
     public function index()
     {
+        $review = Auth::user()->review;
         
+        return view('review.index', compact('review'));
     }
 
     /**

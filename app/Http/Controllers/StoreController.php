@@ -28,7 +28,10 @@ class StoreController extends Controller
      */
     public function create()
     {
-        //
+        $stores = Auth::user()->stores;
+        $stores = Store::all();
+ 
+         return view('store.create', compact('stores'));
     }
 
     /**

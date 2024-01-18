@@ -14,7 +14,6 @@ class BookingController extends Controller
      */
     public function index()
     {
-        
         $booking = Auth::user()->booking;
         return view('booking.index', compact('booking'));
     }
@@ -26,7 +25,8 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        $booking = Auth::user()->booking;
+        return view('booking.create', compact('booking'));
     }
 
     /**
