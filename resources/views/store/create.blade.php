@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <form action="{{ route('store.index') }}" method="POST">
+            <form action="{{ route('store.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="store_name">店舗名</label>

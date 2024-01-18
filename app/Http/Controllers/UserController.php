@@ -27,7 +27,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user()->user;
+ 
+        return view('user.create', compact('user'));
     }
 
     /**
@@ -60,7 +62,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $user = Auth::user()->user;
+ 
+        return view('user.edit', compact('user'));
     }
 
     /**

@@ -62,7 +62,9 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        $review = Auth::user()->review;
+        
+        return view('review.edit', compact('review'));
     }
 
     /**
