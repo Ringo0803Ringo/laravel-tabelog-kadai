@@ -15,6 +15,10 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    @yield('pagecss')
 </head>
 <body style="padding: 60px 0;">
     <div id="app">
@@ -26,5 +30,6 @@
 
         @include('layouts.footer')
     </div>
+    @yield('pagejs')
 </body>
 </html>

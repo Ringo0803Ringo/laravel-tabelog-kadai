@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('pagecss')
+{{-- top pageで使うCSS --}}
+<link rel="stylesheet" href="{{ asset('css/store.css') }}">
+@endsection
  
 @section('content')
 <div class="container">
@@ -12,10 +17,10 @@
                         <a href="{{ route('store.show', $store) }}" class="btn btn-primary">View Store</a>
                     </div>
                     <a href="{{ route('store.favorite', $store) }}" class="btn btn-primary">Favorite</a>
-                    </div>
                 </div>
             </div>
         @endforeach
+    </div>
 </div>
 
 @endsection
