@@ -8,85 +8,24 @@ use App\Models\Store;
 
 class StoreController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // 店舗一覧画面
     public function index()
     {
-        $stores = Auth::user()->stores;
+        // Auth::user()でログイン中のユーザー情報を取得
+
+        /**
+         * 今回は、店舗の情報を一覧で取得できればいい。
+         * なので、Auth::user()でログイン中のユーザー情報を取得する必要はない。
+         */
+
         $stores = Store::all();
  
-         return view('store.index', compact('stores'));
+        return view('store.index', compact('stores'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $stores = Auth::user()->stores;
-        $stores = Store::all();
- 
-         return view('store.create', compact('stores'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // 店舗詳細画面
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        
     }
 }
