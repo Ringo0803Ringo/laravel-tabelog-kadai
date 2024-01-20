@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('pagecss')
+{{-- top pageで使うCSS --}}
+<link rel="stylesheet" href="{{ asset('css/review.css') }}">
+@endsection
  
 @section('content')
 
@@ -8,15 +13,14 @@
             <div class="card">
                 <div class="card-header">評価</div>
                 <div class="card-body">
-                    <form>
                         <div class="form-group">
                             <label for="rating">評価（星）</label>
-                            <select class="form-control" id="rating">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control" id="rating" name="">
+                                <option value="5" class="review-score-color">★★★★★</option>
+                                <option value="4" class="review-score-color">★★★★</option>
+                                <option value="3" class="review-score-color">★★★</option>
+                                <option value="2" class="review-score-color">★★</option>
+                                <option value="1" class="review-score-color">★</option>
                             </select>
                         </div>
                         <div class="form-group">
