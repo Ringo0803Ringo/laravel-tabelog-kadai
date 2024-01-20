@@ -37,7 +37,7 @@ Auth::routes();
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
 Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
-Route::delete('/user/{user}', [UserController::class, 'delete'])->name('user.delete');
+Route::delete('/user/{user}', [UserController::class, 'destory'])->name('user.destory');
 
 Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
 Route::get('/booking/{booking}', [BookingController::class, 'show'])->name('booking.show');
@@ -50,7 +50,8 @@ Route::get('/category/{category}', [CategoryController::class, 'show'])->name('c
 
 Route::get('/favorite/{store}', [FavoriteController::class, 'index'])->name('store.favorite');
 
-Route::resource('review', ReviewController::class);
+Route::get('/review', [ReviewController::class, 'create'])->name('review.create');
+Route::delete('/review', [ReviewController::class, 'destory'])->name('review.destory');
 
 Route::get('/store', [StoreController::class, 'index'])->name('store.index');
 Route::get('/store/{store}', [StoreController::class, 'show'])->name('store.show');

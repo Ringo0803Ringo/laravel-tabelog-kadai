@@ -15,9 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = Auth::user()->user;
- 
-        return view('user.index', compact('user'));
+
     }
 
     /**
@@ -27,9 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $user = Auth::user()->user;
- 
-        return view('user.create', compact('user'));
+   
     }
 
     /**
@@ -49,20 +45,21 @@ class UserController extends Controller
      * @param  \App\Models\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+ 
+        return view('user.show', compact('user'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        $user = Auth::user()->user;
+        $user = User::find($id);
  
         return view('user.edit', compact('user'));
     }

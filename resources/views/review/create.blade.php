@@ -23,7 +23,7 @@
                             <label for="comment">コメント</label>
                             <textarea class="form-control" id="comment" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">提出</button>
+                        <button type="submit" class="btn btn-primary">投稿</button>
                     </form>
                 </div>
             </div>

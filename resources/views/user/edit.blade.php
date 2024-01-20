@@ -16,7 +16,7 @@
                     <label for="email">メールアドレス</label>
                     <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
                 </div>
-                <button type="submit" class="btn btn-primary">更新</button>
+                <a href="{{ route('user.show', $user->id) }}" class="btn btn-primary mt-3">編集</a>
             </form>
         </div>
     </div>
