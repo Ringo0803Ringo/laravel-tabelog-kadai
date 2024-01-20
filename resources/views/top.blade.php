@@ -39,8 +39,24 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <h2>新着店舗</h2>
+            <h2>店舗一覧</h2>
             <!-- 新着店舗はデータベースから取得 -->
+            <div class="container">
+                <div class="row">
+                    @foreach ($stores as $store)
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $store->name }}</h5>
+                                    <p class="card-text">{{ $store->description }}</p>
+                                    <a href="{{ route('store.show', $store) }}" class="btn btn-primary">View Store</a>
+                                </div>
+                                <a href="{{ route('store.favorite', $store) }}" class="btn btn-primary">Favorite</a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </div>
