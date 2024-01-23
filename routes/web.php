@@ -34,6 +34,8 @@ Route::get('/', [TopController::class, 'get_top'])->name('top');
 
 Auth::routes();
 
+Route::get('/search', [TopController::class, 'search']);
+
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
 Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');

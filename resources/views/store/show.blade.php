@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col-md-8">
             <h2 class="mt-3">{{ $store->name }}</h2>
+            <img src="https://placehold.jp/300x200.png">
             <p>{{ $store->description }}</p>
             <p>営業時間：{{$store->business_hour}}</p>
             <p>価格：{{$store->price}}</p>

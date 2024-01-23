@@ -7,22 +7,20 @@ use App\Models\Store;
 
 class TopController extends Controller
 {
-    public function get_top(Request $request) {
+    public function get_top() {
         $categories = Category::all();
-        if (isset($request->keyword)) {
-            $stores = Store::
-                where('name', $request->keyword)
-                ->orWhere('description', $request->keyword)
-                ->get();
-            }
-            else {
-                $stores= Store::get();
-            }
-        
+        $stores= Store::all();
+
         return view('top', [
             'categories' => $categories,
             'stores' => $stores,
-            'keyword' => $request->keyword
         ]);
+    }
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $results = Store::where('name', 'like', '%'.$keyword.'%')->get();
+    return view('search_results', ['results' => $results]);
     }
 }
