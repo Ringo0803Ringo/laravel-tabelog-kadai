@@ -16,16 +16,11 @@
                 <button class="btn btn-primary" type="submit">検索</button>
             </form>
             
-            <select name="store">
-                @foreach($stores as $store)
-                    <option value="{{ $store->id }}">{{ $store->name }}</option>
-                @endforeach
-            </select>
         </div>
         <br>
         <div class="col-md-6">
             <h2>カテゴリ検索</h2>
-            <form>
+            <form action="/search" method="GET">
                 <div class="input-group">
                     <select name="category">
                         @foreach($categories as $category)
@@ -50,13 +45,14 @@
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $store->name }}</h5>
+                                    <img src="https://placehold.jp/150x100.png">
                                     <p class="card-text">{{ $store->description }}</p>
-                                    <a href="{{ route('store.show', $store) }}" class="btn btn-primary">店舗詳細</a>
                                 </div>
-                                <a href="{{ route('store.favorite', $store) }}" class="btn btn-primary">お気に入り</a>
+                                <a href="{{ route('store.show', $store) }}" class="btn btn-primary">店舗詳細</a>
                             </div>
                         </div>
                     @endforeach
+                    {{ $stores->links() }}
                 </div>
             </div>
         </div>

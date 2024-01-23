@@ -53,6 +53,7 @@ Route::get('/category/{category}', [CategoryController::class, 'show'])->name('c
 Route::get('/favorite/{store}', [FavoriteController::class, 'index'])->name('store.favorite');
 
 Route::get('/review', [ReviewController::class, 'create'])->name('review.create');
+Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
 Route::delete('/review', [ReviewController::class, 'destory'])->name('review.destory');
 
 Route::get('/store', [StoreController::class, 'index'])->name('store.index');

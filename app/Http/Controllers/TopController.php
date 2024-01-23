@@ -9,11 +9,12 @@ class TopController extends Controller
 {
     public function get_top() {
         $categories = Category::all();
-        $stores= Store::all();
+        $stores = Store::all();
+        $stores = Store::orderBy('created_at', 'desc')->paginate(3);
 
         return view('top', [
             'categories' => $categories,
-            'stores' => $stores,
+            'stores' => $stores
         ]);
     }
 
@@ -21,6 +22,6 @@ class TopController extends Controller
     {
     $keyword = $request->input('keyword');
     $results = Store::where('name', 'like', '%'.$keyword.'%')->get();
-    return view('search_results', ['results' => $results]);
+    return view('top', ['results' => $results]);
     }
 }

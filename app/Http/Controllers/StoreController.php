@@ -27,7 +27,10 @@ class StoreController extends Controller
     public function show($id)
     {
         $store = Store::find($id);
+        $reviews = $store->reviews()->get();
 
-        return view('store.show', compact('store'));
+        return view('store.show', compact('store', 'reviews'));
     }
+
+    
 }

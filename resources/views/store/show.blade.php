@@ -2,6 +2,8 @@
  
 @section('content')
 
+<link rel="stylesheet" href="{{ asset('css/review.css') }}">
+
 <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -19,9 +21,40 @@
         <div class="col-md-4">
             <a href="{{ route('booking.create') }}" class="btn btn-primary btn-block mt-3">予約する</a>
         </div>
+
+        
     </div>
-    <div class="col-md-4">
-        <a href="{{ route('review.create') }}" class="btn btn-primary btn-block mt-5">レビュー</a>
+
+    <hr>
+    
+    <div class="col-md-12">
+        <h3 class="text-center">レビュー</h3>
+        <div class="form-group col-md-6 offset-md-3">
+            <label for="rating">評価（星）</label>
+            <select class="form-control" id="rating" name="">
+                <option value="5" class="review-score-color">★★★★★</option>
+                <option value="4" class="review-score-color">★★★★</option>
+                <option value="3" class="review-score-color">★★★</option>
+                <option value="2" class="review-score-color">★★</option>
+                <option value="1" class="review-score-color">★</option>
+            </select>
+        </div>
+        <div class="row">
+            @foreach($reviews as $review)
+            <div class="offset-md-5 col-md-5">
+                <p class="h3">{{$review->content}}</p>
+                <label>{{$review->created_at}} {{$review->user->name}}</label>
+            </div>
+            @endforeach
+        </div><br />
+            <div class="col-md-6 offset-md-3">
+                <form action="{{ route('reviews.store') }}" method="POST">
+                    <textarea name="content" class="form-control"></textarea>
+                    <input type="hidden" name="store_id" value="{{$store->id}}">
+                    <button type="submit" class="btn btn-primary btn-block mt-3">レビューを追加</button>
+                </form>
+            </div>
+        </div>
     </div>
     
 </div>
