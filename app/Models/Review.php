@@ -17,7 +17,7 @@ class Review extends Model
     ];
 
     public function stores() {
-        return $this->hasMany(Store::class);
+        return $this->belongsTo(Store::class);
     }
 
     public function users() {
