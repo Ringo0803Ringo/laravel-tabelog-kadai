@@ -28,9 +28,9 @@
     <hr>
     
     <div class="col-md-12">
-        <h3 class="text-center">レビュー</h3>
+        <h4 class="text-center">レビュー</h4>
         <div class="form-group col-md-6 offset-md-3">
-            <label for="rating">評価（星）</label>
+            <label for="rating" class="h4 mt-4">評価（星）</label>
             <select class="form-control" id="rating" name="">
                 <option value="5" class="review-score-color">★★★★★</option>
                 <option value="4" class="review-score-color">★★★★</option>
@@ -46,9 +46,14 @@
                 <label>{{$review->created_at}} {{$review->user->name}}</label>
             </div>
             @endforeach
-        </div><br />
+        </div><br/>
             <div class="col-md-6 offset-md-3">
                 <form action="{{ route('reviews.store') }}" method="POST">
+                    @csrf
+                    <h4>レビュー内容</h4>
+                    @error('content')
+                        <strong>レビュー内容を入力してください</strong>
+                    @enderror
                     <textarea name="content" class="form-control"></textarea>
                     <input type="hidden" name="store_id" value="{{$store->id}}">
                     <button type="submit" class="btn btn-primary btn-block mt-3">レビューを追加</button>
