@@ -1,8 +1,10 @@
 @extends('layouts.app')
- 
-@section('content')
 
-<link rel="stylesheet" href="{{ asset('css/review.css') }}">
+@section('pagecss')
+    <link rel="stylesheet" href="{{ asset('css/review.css') }}">
+@endsection
+
+@section('content')
 
 <div class="container">
     <div class="row">
