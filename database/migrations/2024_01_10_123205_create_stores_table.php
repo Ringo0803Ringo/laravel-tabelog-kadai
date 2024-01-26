@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone_number');
             $table->string('holiday')->nullable();
+            $table->integer('category_id')->unsigned();
             $table->timestamps();
         });
     }

@@ -8,29 +8,20 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row text-center">
+        <div class="col-md-6 mx-auto">
             <h2>店舗検索</h2>
             <form action="/search" method="GET">
                 <input type="text" name="keyword" placeholder="店舗を検索">
-                <button class="btn btn-primary" type="submit">検索</button>
-            </form>
-            
-        </div>
-        <br>
-        <div class="col-md-6">
-            <h2>カテゴリ検索</h2>
-            <form action="/search" method="GET">
-                <div class="input-group">
-                    <select name="category">
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="submit">検索</button>
-                    </span>
-                </div>
+                <select name="category">
+                    <option value="">カテゴリーが末選択</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">検索</button>
+                </span>
             </form>
         </div>
     </div>

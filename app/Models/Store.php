@@ -18,7 +18,8 @@ class Store extends Model
         'postal_code',
         'address',
         'phone_number',
-        'holiday'
+        'holiday',
+        'category_id',
     ];
 
     public function bookings() {

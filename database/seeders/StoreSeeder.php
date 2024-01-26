@@ -15,6 +15,7 @@ class StoreSeeder extends Seeder
      */
     public function run()
     {
+        Store::where('id', '>', 0)->delete();
         for ($i = 1; $i <= 10; $i++) {
             Store::create([
                 'name' => '店舗' . $i,
@@ -25,6 +26,7 @@ class StoreSeeder extends Seeder
                 'postal_code' => '150-0043',
                 'address' => '東京都渋谷区道玄坂' . $i . '-1-1',
                 'phone_number' => '090-1234-567' . $i,
+                'category_id' => rand(1, 5),
                 'holiday' => '毎週月曜日',
             ]);
         }
