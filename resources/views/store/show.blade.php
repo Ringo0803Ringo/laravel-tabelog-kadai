@@ -22,47 +22,39 @@
             <a href="{{ route('booking.create') }}" class="btn btn-primary btn-block mt-3">予約する</a>
             <a href="{{ route('store.favorite', $store) }}" class="btn btn-primary btn-block mt-3">お気に入り</a>
         </div>
-
-        
     </div>
 
-    <hr>
-    
-    <div class="col-md-12">
-        <h4 class="text-center">レビュー</h4>
-        <div class="form-group col-md-6 offset-md-3">
-            <label for="rating" class="h4 mt-4">評価（星）</label>
-            <select class="form-control" id="rating" name="">
-                <option value="5" class="review-score-color">★★★★★</option>
-                <option value="4" class="review-score-color">★★★★</option>
-                <option value="3" class="review-score-color">★★★</option>
-                <option value="2" class="review-score-color">★★</option>
-                <option value="1" class="review-score-color">★</option>
-            </select>
-        </div>
-        <div class="row">
+    <div class="row">
+        <div class="col-md-8">
             @foreach($reviews as $review)
-            <div class="offset-md-5 col-md-5">
                 <p class="h3">{{$review->content}}</p>
                 <label>{{$review->created_at}} {{$review->user->name}}</label>
-            </div>
             @endforeach
-        </div><br />
-            <div class="col-md-6 offset-md-3">
-                <form action="{{ route('reviews.store') }}" method="POST">
-                    @csrf
-                    <h4>レビュー内容</h4>
-                    @error('content')
-                        <strong>レビュー内容を入力してください</strong>
-                    @enderror
-                    <textarea name="content" class="form-control"></textarea>
-                    <input type="hidden" name="store_id" value="{{$store->id}}">
-                    <button type="submit" class="btn btn-primary btn-block mt-3">レビューを追加</button>
-                </form>
-            </div>
+        </div>
+        <div class="col-md-4">
+            <form action="{{ route('reviews.store', $store->id) }}" method="POST">
+                @csrf
+                <h4 class="text-center">レビュー</h4>
+                <div class="form-group">
+                    <label for="rating" class="h4 mt-4">評価（星）</label>
+                    <select class="form-control" id="rating" name="star">
+                        <option value="5" class="review-score-color">★★★★★</option>
+                        <option value="4" class="review-score-color">★★★★</option>
+                        <option value="3" class="review-score-color">★★★</option>
+                        <option value="2" class="review-score-color">★★</option>
+                        <option value="1" class="review-score-color">★</option>
+                    </select>
+                </div>
+                <h4>レビュー内容</h4>
+                @error('content')
+                    <strong>レビュー内容を入力してください</strong>
+                @enderror
+                <textarea name="content" class="form-control"></textarea>
+                <input type="hidden" name="store_id" value="{{$store->id}}">
+                <button type="submit" class="btn btn-primary btn-block mt-3">レビューを追加</button>
+            </form>
         </div>
     </div>
-    
 </div>
 
 @endsection

@@ -16,11 +16,11 @@ class Review extends Model
         'user_id'
     ];
 
-    public function stores() {
+    public function store() {
         return $this->belongsTo(Store::class);
     }
 
-    public function users() {
-        return $this->hasMany(User::class);
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }

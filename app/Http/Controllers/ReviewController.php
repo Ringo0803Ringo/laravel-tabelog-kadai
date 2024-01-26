@@ -40,11 +40,12 @@ class ReviewController extends Controller
     {
         $review = new Review();
         $review->content = $request->input('content');
-        $review->product_id = $request->input('product_id');
+        $review->store_id = $request->input('store_id');
         $review->user_id = Auth::user()->id;
+        $review->star = $request->input('star');
         $review->save();
 
-        return back();
+        return back()->with('success', 'レビューを投稿しました');
     }
 
     /**
@@ -55,7 +56,9 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        //
+        $review = Auth::user()->review;
+          
+        return view('review.show', compact('review'));
     }
 
     /**
