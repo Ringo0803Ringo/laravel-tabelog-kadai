@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <h2 class="mt-3 mb-4">{{ $store->name }}</h2>
             <img src="https://placehold.jp/300x200.png">
-            <p class=mt-4>{{ $store->description }}</p>
+            <p class="mt-4">{{ $store->description }}</p>
             <p>営業時間：{{$store->business_hour}}</p>
             <p>価格：{{$store->price}}</p>
             <p>郵便番号：{{$store->postal_code}}</p>
@@ -18,8 +18,9 @@
             <p>定休日：{{$store->holiday}}</p>
 
         </div>
-        <div class="col-md-4">
+        <div class="offset-md-8">
             <a href="{{ route('booking.create') }}" class="btn btn-primary btn-block mt-3">予約する</a>
+            <a href="{{ route('store.favorite', $store) }}" class="btn btn-primary btn-block mt-3">お気に入り</a>
         </div>
 
         
@@ -46,7 +47,7 @@
                 <label>{{$review->created_at}} {{$review->user->name}}</label>
             </div>
             @endforeach
-        </div><br/>
+        </div><br />
             <div class="col-md-6 offset-md-3">
                 <form action="{{ route('reviews.store') }}" method="POST">
                     @csrf

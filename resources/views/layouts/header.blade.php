@@ -47,13 +47,13 @@
                                 </form>
                             </div>
                         </li>
+                        <li class="nav-item mr-5">
+                            <a class="nav-link" href="{{ route('user.show', ['user' => '1']) }}">
+                              <p>ユーザー情報</p>
+                            </a>
+                        </li>
                     @endguest
                 </ul>
-                <li class="nav-item mr-5">
-                    <a class="nav-link" href="{{ route('user.show', ['user' => 'default']) }}">
-                      <p>ユーザー情報</p>
-                    </a>
-                </li>
             </div>
         </div>
     </nav>
