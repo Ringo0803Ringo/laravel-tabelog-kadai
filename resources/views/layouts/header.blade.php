@@ -13,7 +13,7 @@
                 <ul class="navbar-nav me-auto">
 
                 </ul>
-                
+
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
@@ -39,8 +39,8 @@
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                        {{ __('Logout') }}
+                                    </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
@@ -49,6 +49,11 @@
                         </li>
                     @endguest
                 </ul>
+                <li class="nav-item mr-5">
+                    <a class="nav-link" href="{{ route('user.show', ['user' => 'default']) }}">
+                      <p>ユーザー情報</p>
+                    </a>
+                </li>
             </div>
         </div>
     </nav>
