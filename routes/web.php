@@ -43,15 +43,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user/{user}', [UserController::class, 'destory'])->name('user.destory');
 
-    Route::get('/booking/{booking}', [BookingController::class, 'show'])->name('booking.show');
-    Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
-    Route::delete('/booking/{booking}', [BookingController::class, 'delete'])->name('booking.delete');
-
     Route::get('/review/{store}', [ReviewController::class, 'show'])->name('review.show');
     Route::post('reviews/{store}', [ReviewController::class, 'store'])->name('reviews.store');
     Route::delete('/review/{store}', [ReviewController::class, 'destory'])->name('review.destory');
     Route::get('/favorite/{store}', [FavoriteController::class, 'index'])->name('store.favorite');
-    Route::get('/booking/{store}', [BookingController::class, 'index'])->name('store.booking');
+    Route::get('/booking/{store}', [BookingController::class, 'create'])->name('store.booking');
 });
 
 Route::resource('admin', AdminController::class);

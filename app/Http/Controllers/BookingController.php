@@ -5,29 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Booking;
+use App\Models\Store;
 
 class BookingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $booking = Booking::all();
-        return view('booking.index', compact('booking'));
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         $booking = Booking::all();
-        return view('booking.create', compact('booking'));
+        $store = Store::find($id);
+        return view('booking.create', compact('booking', 'store'));
     }
 
     /**
