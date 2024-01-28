@@ -34,7 +34,7 @@
             @endforeach
         </div>
         <div class="col-md-4">
-            <form action="{{ route('reviews.store', $store->id) }}" method="POST">
+            <form action="{{ route('review.store', $store->id) }}" method="POST">
                 @csrf
                 <h4 class="text-center">レビュー</h4>
                 <div class="form-group">
