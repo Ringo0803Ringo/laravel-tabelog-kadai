@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Favorite;
 
 class FavoriteController extends Controller
 {
@@ -14,7 +15,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        $favorite = Auth::user()->favorite;
+        $favorite = Favorite::all();
         
         return view('favorite.index', compact('favorite'));
     }

@@ -21,7 +21,7 @@
 
         </div>
         <div class="offset-md-8">
-            <a href="{{ route('booking.create') }}" class="btn btn-primary btn-block mt-3">予約する</a>
+            <a href="{{ route('store.booking', $store) }}" class="btn btn-primary btn-block mt-3">予約する</a>
             <a href="{{ route('store.favorite', $store) }}" class="btn btn-primary btn-block mt-3">お気に入り</a>
         </div>
     </div>

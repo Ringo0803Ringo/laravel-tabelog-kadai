@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StoreController;
@@ -44,9 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user/{user}', [UserController::class, 'destory'])->name('user.destory');
 
-    Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
     Route::get('/booking/{booking}', [BookingController::class, 'show'])->name('booking.show');
-    Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
     Route::delete('/booking/{booking}', [BookingController::class, 'delete'])->name('booking.delete');
 
@@ -54,6 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('reviews/{store}', [ReviewController::class, 'store'])->name('reviews.store');
     Route::delete('/review/{store}', [ReviewController::class, 'destory'])->name('review.destory');
     Route::get('/favorite/{store}', [FavoriteController::class, 'index'])->name('store.favorite');
+    Route::get('/booking/{store}', [BookingController::class, 'index'])->name('store.booking');
 });
 
 Route::resource('admin', AdminController::class);
