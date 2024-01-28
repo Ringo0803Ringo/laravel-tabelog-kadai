@@ -18,14 +18,7 @@
                 </div>
                 <div class="form-group">
                     <label for="amount">人数</label>
-                    <select class="form-control" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
+                    <input type="number" step="1" class="form-control" id="amount">
                 </div>
                 <input type="hidden" name="store_id" value="{{$store->id}}">
                 <a href="{{ route('booking.show', $store->id) }}" class="btn btn-primary mt-3">予約する</a>
