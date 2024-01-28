@@ -30,7 +30,15 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $booking = new Booking();
+        $booking->store_id = $request->input('store_id');
+        $booking->date = $request->input('date');
+        $booking->time = $request->input('time');
+        $booking->amount = $request->input('amount');
+        $booking->user_id = Auth::user()->id;
+        $booking->save();
+
+        return back()->with('success', '予約が完了しました');
     }
 
     /**
@@ -41,7 +49,9 @@ class BookingController extends Controller
      */
     public function show($id)
     {
-        //
+        $booking = Booking::all();
+        $store = Store::find($id);
+        return view('booking.show', compact('booking', 'store'));
     }
 
     /**

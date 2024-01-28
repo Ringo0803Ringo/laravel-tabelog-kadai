@@ -19,6 +19,16 @@
             </div>
 
             <div class="card mt-3">
+                <div class="card-header">予約リスト</div>
+                <div class="card-body">
+                    <ul>
+                        @foreach ($user->bookings as $booking)
+                            <li><a href="{{ route('booking.show', $booking->store_id) }}">{{ $booking->store->name }}</a></li>
+                        @endforeach
+                        <li><a href="{{ route('booking.show', 1) }}">ホゲホゲ</a></li>
+                    </ul>
+                </div>
+
                 <div class="card-header">過去のレビュー</div>
                 <div class="card-body">
                     <ul>

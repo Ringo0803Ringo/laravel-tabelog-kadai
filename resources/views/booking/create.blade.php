@@ -27,7 +27,8 @@
                         <option value="6">6</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">予約する</button>
+                <input type="hidden" name="store_id" value="{{$store->id}}">
+                <a href="{{ route('booking.show', $store->id) }}" class="btn btn-primary mt-3">予約する</a>
             </form>
         </div>
     </div>
