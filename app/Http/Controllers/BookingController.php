@@ -30,6 +30,7 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $booking = new Booking();
         $booking->store_id = $request->input('store_id');
         $booking->date = $request->input('date');

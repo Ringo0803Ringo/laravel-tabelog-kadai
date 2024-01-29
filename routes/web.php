@@ -46,7 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/review/{store}', [ReviewController::class, 'show'])->name('review.show');
     Route::post('/review/{store}', [ReviewController::class, 'store'])->name('review.store');
     Route::delete('/review/{store}', [ReviewController::class, 'destory'])->name('review.destory');
-    Route::get('/favorite/{store}', [FavoriteController::class, 'index'])->name('store.favorite');
+    Route::post('/favorite/{store}', [FavoriteController::class, 'store'])->name('favorite.store');
     
     Route::get('/booking/{store}/create', [BookingController::class, 'create'])->name('store.booking');
     Route::post('/booking/{store}', [BookingController::class, 'store'])->name('booking.store');
