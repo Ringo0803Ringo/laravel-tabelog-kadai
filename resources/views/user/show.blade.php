@@ -47,7 +47,7 @@
                 <div class="card-body">
                     <ul>
                         @foreach ($user->favorites as $favorite)
-                            <li><a href="">{{ $favorite->name }}</</a></li>
+                            <li><a href="">{{ $favorite->name }}</a></li>
                         @endforeach
                         <li><a href="">ホゲホゲ</a></li>
                         <li><a href="">ホゲホゲ</a></li>
@@ -58,7 +58,7 @@
                     </ul>
                 </div>
             </div>
-             <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary mt-3">編集</a>
+             <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary mt-3">ユーザー情報編集</a>
         </div>
     </div>
 </div>

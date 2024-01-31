@@ -41,7 +41,6 @@ class FavoriteController extends Controller
         $favorite = new Favorite();
         $favorite->store_id = $request->input('store_id');
         $favorite->user_id = Auth::user()->id;
-        $favorite->name = '店舗' . 'store_id';
         $favorite->save();
 
         return back()->with('success', 'お気に入り登録しました');

@@ -20,25 +20,27 @@
             <p>定休日：{{$store->holiday}}</p>
 
         </div>
-        <div class="offset-md-7">
-            
-            <a href="{{ route('store.booking', $store) }}" class="btn btn-primary btn-block mt-3">予約する</a>
-            
-            @if($store)
-            <form action="{{ route('favorite.store', $store->id) }}" method="POST">
-                @csrf
-                <input type="hidden" name="store_id" value="{{$store->id}}">
-                <button type="submit" class="btn btn-primary btn-block mt-3">お気に入り登録</button>
-            </form>
-            @else
-            <form action="{{ route('favorite.destroy') }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <input type="hidden" name="store_id" value="{{$store->id}}">
-                <button type="submit" class="btn btn-primary btn-block mt-3">お気に入り解除</button>
-            </form>
-            @endif
+        <div class="btn-toolbar">
+            <div class="btn-group">
+                
+                <a href="{{ route('store.booking', $store) }}" class="btn btn-primary btn-block mt-3">予約する</a>
+                
+                @if($store)
+                <form action="{{ route('favorite.store', $store->id) }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="store_id" value="{{$store->id}}">
+                    <button type="submit" class="btn btn-primary btn-block mt-3">お気に入り登録</button>
+                </form>
+                @else
+                <form action="{{ route('favorite.destroy') }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" name="store_id" value="{{$store->id}}">
+                    <button type="submit" class="btn btn-primary btn-block mt-3">お気に入り解除</button>
+                </form>
+                @endif
 
+            </div>
         </div>
     </div>
 
