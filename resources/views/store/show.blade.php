@@ -23,7 +23,7 @@
         <div class="btn-toolbar">
             <div class="btn-group">
                 
-                <a href="{{ route('store.booking', $store) }}" class="btn btn-primary btn-block mt-3">予約する</a>
+                <a href="{{ route('store.booking', $store) }}" class="btn btn-primary btn-block rounded-3 mt-3 me-1">予約する</a>
                 
                 @if($store)
                 <form action="{{ route('favorite.store', $store->id) }}" method="POST">
