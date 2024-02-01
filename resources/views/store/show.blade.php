@@ -46,32 +46,41 @@
 
     <div class="row">
         <div class="col-md-8">
-            @foreach($reviews as $review)
-                <p class="h3">{{$review->content}}</p>
-                <label>{{$review->created_at}} {{$review->user->name}}</label>
-            @endforeach
+            <div class="card mt-4">
+                <div class="card-header">レビュー最新一覧</div>
+                <div class="card-body">
+                    @foreach($reviews as $review)
+                        <p class="h3">{{$review->content}}</p>
+                        <label>{{$review->created_at}} {{$review->user->name}}</label>
+                    @endforeach 
+                </div>
+            </div>
         </div>
         <div class="col-md-4">
             <form action="{{ route('review.store', $store->id) }}" method="POST">
                 @csrf
-                <h4 class="text-center">レビュー</h4>
-                <div class="form-group">
-                    <label for="rating" class="h4 mt-4">評価（星）</label>
-                    <select class="form-control" id="rating" name="star">
-                        <option value="5" class="review-score-color">★★★★★</option>
-                        <option value="4" class="review-score-color">★★★★</option>
-                        <option value="3" class="review-score-color">★★★</option>
-                        <option value="2" class="review-score-color">★★</option>
-                        <option value="1" class="review-score-color">★</option>
-                    </select>
+                <div class="card mt-4">
+                    <div class="card-header text-center">レビューを書く</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="rating" class="h4 mt-4">評価（星）</label>
+                            <select class="form-control" id="rating" name="star">
+                                <option value="5" class="review-score-color">★★★★★</option>
+                                <option value="4" class="review-score-color">★★★★</option>
+                                <option value="3" class="review-score-color">★★★</option>
+                                <option value="2" class="review-score-color">★★</option>
+                                <option value="1" class="review-score-color">★</option>
+                            </select>
+                        </div>
+                        <h4>レビュー内容</h4>
+                        @error('content')
+                            <strong>レビュー内容を入力してください</strong>
+                        @enderror
+                        <textarea name="content" class="form-control"></textarea>
+                        <input type="hidden" name="store_id" value="{{$store->id}}">
+                        <button type="submit" class="btn btn-primary btn-block mt-3">レビューを追加</button>
+                    </div>
                 </div>
-                <h4>レビュー内容</h4>
-                @error('content')
-                    <strong>レビュー内容を入力してください</strong>
-                @enderror
-                <textarea name="content" class="form-control"></textarea>
-                <input type="hidden" name="store_id" value="{{$store->id}}">
-                <button type="submit" class="btn btn-primary btn-block mt-3">レビューを追加</button>
             </form>
         </div>
     </div>
