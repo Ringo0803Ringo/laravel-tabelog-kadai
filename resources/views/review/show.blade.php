@@ -15,19 +15,18 @@
                 <div class="card-body">
                         <div class="form-group">
                             <label for="rating">評価（星）</label>
-                            <select class="form-control" id="rating" name="">
-                                <option value="5" class="review-score-color">★★★★★</option>
-                                <option value="4" class="review-score-color">★★★★</option>
-                                <option value="3" class="review-score-color">★★★</option>
-                                <option value="2" class="review-score-color">★★</option>
-                                <option value="1" class="review-score-color">★</option>
-                            </select>
+                            <p>
+                                @for ($i = 0; $i < $review->star; $i++)
+                                    ★
+                                @endfor
+                            </p>
                         </div>
                         <div class="form-group">
                             <label for="comment">コメント</label>
-                            <textarea class="form-control" id="comment" rows="3"></textarea>
+                            <p>
+                                {{ $review->content }}
+                            </p>
                         </div>
-                        <button type="submit" class="btn btn-primary">投稿</button>
                     </form>
                 </div>
             </div>

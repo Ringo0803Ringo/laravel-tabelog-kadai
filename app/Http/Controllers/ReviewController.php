@@ -40,7 +40,7 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        $review = Auth::user()->review;
+        $review = Auth::user()->reviews()->find($id);
           
         return view('review.show', compact('review'));
     }

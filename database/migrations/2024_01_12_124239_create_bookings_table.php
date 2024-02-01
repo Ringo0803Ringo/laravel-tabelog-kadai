@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('date');
-            $table->dateTime('time');
+            $table->date('booking_date');
+            $table->time('booking_time');
             $table->integer('amount');
             $table->foreignId('store_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();

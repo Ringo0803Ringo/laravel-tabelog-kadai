@@ -35,9 +35,8 @@
                 <div class="card-body">
                     <ul>
                         @foreach ($user->reviews as $review)
-                            <li><a href="{{ route('review.show', $review->store_id) }}">{{ $review->store->name }}</a></li>
+                            <li><a href="{{ route('review.show', $review->id) }}">{{ $review->store->name }}</a></li>
                         @endforeach
-                        <li><a href="{{ route('review.show', 1) }}">ホゲホゲ</a></li>
                     </ul>
                 </div>
             </div>
