@@ -18,7 +18,7 @@
                 </div>
             </div>
             
-            {{-- <div class="card mt-3"> 
+            <div class="card mt-3"> 
                 <div class="card-header">予約リスト</div>
                 <div class="card-body">
                     <ul>
@@ -28,7 +28,7 @@
                         <li><a href="{{ route('booking.show', 1) }}">ホゲホゲ</a></li>
                     </ul>
                 </div>
-            </div>--}}
+            </div>
             
             <div class="card mt-3">
                 <div class="card-header">過去のレビュー</div>
