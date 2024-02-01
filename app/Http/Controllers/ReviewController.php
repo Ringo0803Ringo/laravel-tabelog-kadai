@@ -35,13 +35,11 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id レビューID
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $review = Auth::user()->reviews()->find($id);
-          
+    public function show(Review $review)
+    {     
         return view('review.show', compact('review'));
     }
 

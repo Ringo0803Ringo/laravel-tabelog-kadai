@@ -28,7 +28,7 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Store $store)
     {
         $booking = new Booking();
         $booking->store_id = $request->input('store_id');
@@ -47,10 +47,9 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Booking $booking)
     {
-        $booking = Booking::all();
-        $store = Store::find($id);
+        $store = Store::find($booking->store_id);
         return view('booking.show', compact('booking', 'store'));
     }
 

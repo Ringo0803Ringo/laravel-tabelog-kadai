@@ -43,14 +43,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/user/{user}/edit', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user/{user}', [UserController::class, 'destory'])->name('user.destory');
 
-    Route::get('/review/{store}', [ReviewController::class, 'show'])->name('review.show');
+    Route::get('/review/{review}', [ReviewController::class, 'show'])->name('review.show');
     Route::post('/review/{store}', [ReviewController::class, 'store'])->name('review.store');
-    Route::delete('/review/{store}', [ReviewController::class, 'destory'])->name('review.destory');
+    Route::delete('/review/{review}', [ReviewController::class, 'destory'])->name('review.destory');
     Route::post('/favorite/{store}', [FavoriteController::class, 'store'])->name('favorite.store');
+    Route::delete('/favorite/{favorite}/destroy', [FavoriteController::class, 'destroy'])->name('favorite.destroy');
     
     Route::get('/booking/{store}/create', [BookingController::class, 'create'])->name('store.booking');
     Route::post('/booking/{store}', [BookingController::class, 'store'])->name('booking.store');
-    Route::get('/booking/{store}', [BookingController::class, 'show'])->name('booking.show');
+    Route::get('/booking/{booking}', [BookingController::class, 'show'])->name('booking.show');
 });
 
 Route::resource('admin', AdminController::class);

@@ -27,7 +27,12 @@
                                 {{ $review->content }}
                             </p>
                         </div>
-                    </form>
+                        {{-- TODO --}}
+                        <form action="route('review.destory', $review)" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-primary btn-block mt-3">削除</button>
+                        </form>
                 </div>
             </div>
         </div>
