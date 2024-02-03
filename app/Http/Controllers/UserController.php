@@ -38,10 +38,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        dd($request, $user);
         // TODO: ユーザー情報の更新処理を実装する
-
+        $user->name =$request->name;
+        $user->save();
         // リダイレクト処理(messeageをつける)
+        return redirect()->route('top');
     }
 
     /**
