@@ -51,7 +51,7 @@
                 <div class="card-body">
                     @foreach($reviews as $review)
                         <p class="h3">{{$review->content}}</p>
-                        <label>{{$review->created_at}} {{$review->user->name}}</label>
+                        <label>{{$review->user->name}} {{$review->created_at}}</label>
                     @endforeach 
                 </div>
             </div>

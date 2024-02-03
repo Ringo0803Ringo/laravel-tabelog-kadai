@@ -25,7 +25,6 @@
                         @foreach ($user->bookings as $booking)
                             <li><a href="{{ route('booking.show', $booking->store_id) }}">{{ $booking->store->name }}</a></li>
                         @endforeach
-                        <li><a href="{{ route('booking.show', 1) }}">ホゲホゲ</a></li>
                     </ul>
                 </div>
             </div>

@@ -22,6 +22,10 @@ class Store extends Model
         'category_id',
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y/m/d',
+    ];
+
     public function bookings() {
         return $this->hasMany(Booking::class);
     }

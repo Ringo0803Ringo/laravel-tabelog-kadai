@@ -38,14 +38,16 @@ Auth::routes();
 Route::middleware(['auth', 'verified'])->group(function () {
     // ここにログイン済み＆verify済みのユーザーのみアクセスできるルートを追加
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
     Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
     Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
-    Route::put('/user/{user}/edit', [UserController::class, 'update'])->name('user.update');
+    Route::put('/user/{user}/update', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user/{user}', [UserController::class, 'destory'])->name('user.destory');
 
     Route::get('/review/{review}', [ReviewController::class, 'show'])->name('review.show');
     Route::post('/review/{store}', [ReviewController::class, 'store'])->name('review.store');
     Route::delete('/review/{review}', [ReviewController::class, 'destory'])->name('review.destory');
+    
     Route::post('/favorite/{store}', [FavoriteController::class, 'store'])->name('favorite.store');
     Route::delete('/favorite/{favorite}/destroy', [FavoriteController::class, 'destroy'])->name('favorite.destroy');
     
