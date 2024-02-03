@@ -28,7 +28,7 @@
                             </p>
                         </div>
                         {{-- TODO --}}
-                        <form action="route('review.destory', $review)" method="POST">
+                        <form action="{{ route('review.destroy', $review) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-primary btn-block mt-3">削除</button>

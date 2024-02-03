@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Review;
 use App\Models\Store;
+use App\Models\User;
 
 class ReviewController extends Controller
 {
@@ -51,8 +52,10 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Review $review, User $user)
     {
-        //
+        $review->delete();
+
+        return redirect('top')->with('success', 'レビューを解除しました');
     }
 }

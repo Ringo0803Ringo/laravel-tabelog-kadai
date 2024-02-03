@@ -39,7 +39,7 @@
                     <button type="submit" class="btn btn-primary btn-block mt-3">お気に入り解除</button>
                 </form>
                 @endif
-
+                
             </div>
         </div>
     </div>
