@@ -11,7 +11,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">評価</div>
+                <div class="card-header">
+                    <h5>{{ $review->store->name }}</h5>
+                </div>
                 <div class="card-body">
                         <div class="form-group">
                             <label for="rating">評価（星）</label>

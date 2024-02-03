@@ -51,15 +51,17 @@ class BookingController extends Controller
         $store = Store::find($booking->store_id);
         return view('booking.show', compact('booking', 'store'));
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Booking $booking)
     {
-        //
+        $booking->delete();
+
+        return back()->with('success', '予約をキャンセルしました');
     }
 }

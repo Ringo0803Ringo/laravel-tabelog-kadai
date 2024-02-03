@@ -2,6 +2,36 @@
  
 @section('content')
 
-<p>完了</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5>{{ $booking->store->name }}</h5>
+                </div>
+                <div class="card-body">
+                        <div class="form-group">
+                            <label for="rating">日時</label>
+                            <p>
+                                {{ $booking->booking_date }}
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">時間</label>
+                            <p>
+                                {{ $booking->booking_time }}
+                            </p>
+                        </div>
+                        <form action="{{ route('booking.destroy', $booking) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-primary btn-block mt-3">削除</button>
+                        </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection

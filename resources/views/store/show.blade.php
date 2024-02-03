@@ -32,14 +32,14 @@
                     <button type="submit" class="btn btn-primary btn-block mt-3">お気に入り登録</button>
                 </form>
                 @else
-                <form action="{{ route('favorite.destroy') }}" method="POST">
+                <form action="{{ route('favorite.destroy', $store) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <input type="hidden" name="store_id" value="{{$store->id}}">
                     <button type="submit" class="btn btn-primary btn-block mt-3">お気に入り解除</button>
                 </form>
                 @endif
-                
+
             </div>
         </div>
     </div>
