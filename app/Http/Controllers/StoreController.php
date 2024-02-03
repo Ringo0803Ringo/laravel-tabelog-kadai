@@ -24,9 +24,8 @@ class StoreController extends Controller
     }
 
     // 店舗詳細画面
-    public function show($id)
+    public function show(Store $store)
     {
-        $store = Store::find($id);
         $reviews = $store->reviews()->get();
 
         return view('store.show', compact('store', 'reviews'));

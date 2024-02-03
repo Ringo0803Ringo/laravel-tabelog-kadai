@@ -14,10 +14,8 @@ class UserController extends Controller
      * @param  \App\Models\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::find($id);
- 
         return view('user.show', compact('user'));
     }
     /**
@@ -26,10 +24,8 @@ class UserController extends Controller
      * @param  \App\Models\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user = User::find($id);
- 
         return view('user.edit', compact('user'));
     }
 
