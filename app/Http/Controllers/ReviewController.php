@@ -56,6 +56,6 @@ class ReviewController extends Controller
     {
         $review->delete();
 
-        return redirect('top')->with('success', 'レビューを解除しました');
+        return redirect('top')->with('success', 'レビューを削除しました');
     }
 }

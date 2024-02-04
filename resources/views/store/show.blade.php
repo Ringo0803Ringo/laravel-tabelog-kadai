@@ -50,8 +50,12 @@
                 <div class="card-header">レビュー最新一覧</div>
                 <div class="card-body">
                     @foreach($reviews as $review)
-                        <p class="h3">{{$review->content}}</p>
                         <label>{{$review->user->name}} {{$review->created_at}}</label>
+                        <br>
+                        @for ($i = 0; $i < $review->star; $i++)
+                        ★
+                        @endfor
+                        <p>{{$review->content}}</p>
                     @endforeach 
                 </div>
             </div>

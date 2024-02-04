@@ -22,7 +22,7 @@
                                 {{ $booking->booking_time }}
                             </p>
                         </div>
-                        <form action="{{ route('booking.destroy', $booking) }}" method="POST">
+                        <form action="{{ route('booking.destroy', $booking->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-primary btn-block mt-3">削除</button>
