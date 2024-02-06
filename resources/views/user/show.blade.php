@@ -19,7 +19,7 @@
             </div>
             
             <div class="card mt-3"> 
-                <div class="card-header">予約リスト</div>
+                <div class="card-header">予約店舗</div>
                 <div class="card-body">
                     <ul>
                         @foreach ($user->bookings as $booking)
