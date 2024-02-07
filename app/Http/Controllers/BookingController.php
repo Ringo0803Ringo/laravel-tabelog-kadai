@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Booking;
 use App\Models\Store;
+use App\Models\User;
 
 class BookingController extends Controller
 {
@@ -58,10 +59,10 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booking $booking)
+    public function destroy(Booking $booking, User $user)
     {
         $booking->delete();
 
-        return back()->with('success', '予約をキャンセルしました');
+        return redirect()->route('user.show', $user->id)->with('success', '予約をキャンセルしました');
     }
 }

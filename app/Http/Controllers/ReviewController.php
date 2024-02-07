@@ -56,6 +56,6 @@ class ReviewController extends Controller
     {
         $review->delete();
 
-        return redirect()->route('user.show', $user->id)->with('success', 'レビューを削除しました');
+        return redirect()->route('user.show', $user->id)->with(['success' => 'レビューを削除しました']);
     }
 }
