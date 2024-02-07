@@ -38,7 +38,7 @@ class BookingController extends Controller
         $booking->user_id = Auth::user()->id;
         $booking->save();
 
-        return back()->with('success', '予約が完了しました');
+        return redirect()->route('store.show', $store->id)->with('success', '予約が完了しました');
     }
 
     /**
@@ -63,6 +63,6 @@ class BookingController extends Controller
     {
         $booking->delete();
 
-        return redirect()->route('user.show', $user->id)->with('success', '予約をキャンセルしました');
+        return redirect()->route('user.show', ['user' => '1'])->with('success', '予約をキャンセルしました');
     }
 }
