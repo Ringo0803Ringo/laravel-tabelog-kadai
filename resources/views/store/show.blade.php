@@ -25,7 +25,7 @@
                 
                 <a href="{{ route('store.booking', $store) }}" class="btn btn-primary btn-block rounded-3 mt-3 me-1">予約する</a>
                 
-                @if(Auth::user()->favorites()->where('store_id', $store->id)->first())
+                @if(empty(Auth::user()->favorites()->where('store_id', $store->id)->first()))
                 <form action="{{ route('favorite.store', $store->id) }}" method="POST">
                     @csrf
                     <input type="hidden" name="store_id" value="{{$store->id}}">

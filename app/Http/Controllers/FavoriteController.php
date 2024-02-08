@@ -39,8 +39,9 @@ class FavoriteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Store $store)
+    public function destroy(Request $request, Store $store)
     {
+        $store = Store::find($request->store_id);
         $store->favorites()->where('user_id', Auth::user()->id)->delete();
 
         return back()->with('success', 'お気に入りを解除しました');
