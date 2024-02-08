@@ -18,7 +18,7 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::guard($guard)->check()) {
+        if (Auth::check()) {
             $role = Role::where('user_id', Auth::user()->id)->first();
             if ($role->role == 1) {
                 return back();
