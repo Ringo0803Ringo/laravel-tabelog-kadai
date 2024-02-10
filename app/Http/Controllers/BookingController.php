@@ -62,7 +62,8 @@ class BookingController extends Controller
     public function destroy(Booking $booking, User $user)
     {
         $booking->delete();
+        $user = Auth::user();
 
-        return redirect()->route('user.show', ['user' => '1'])->with('success', '予約をキャンセルしました');
+        return redirect()->route('user.show', ['user' => $user])->with('success', '予約をキャンセルしました');
     }
 }

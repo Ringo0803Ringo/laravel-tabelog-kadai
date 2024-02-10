@@ -42,7 +42,7 @@ class UserController extends Controller
         $user->name =$request->name;
         $user->save();
         // リダイレクト処理(messeageをつける)
-        return redirect()->route('top');
+        return redirect()->route('top')->with('success', 'ユーザー情報を変更しました');
     }
 
     /**
