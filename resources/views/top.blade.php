@@ -14,7 +14,7 @@
             <form action="/search" method="GET">
                 <input type="text" name="keyword" placeholder="店舗を検索">
                 <select name="category">
-                    <option value="">カテゴリーが末選択</option>
+                    <option value="">カテゴリーが未選択</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
