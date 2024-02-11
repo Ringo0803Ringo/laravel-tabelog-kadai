@@ -23,6 +23,13 @@ class StoreController extends Controller
         return view('store.index', compact('stores'));
     }
 
+    public function create()
+    {
+        $stores = Store::all();
+        
+        return view('store.create', compact('stores'));
+    }
+
     // 店舗詳細画面
     public function show(Store $store)
     {

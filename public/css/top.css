@@ -1,9 +1,10 @@
 /* TOPページ　　で扱うCSS */
 
-.flex items-center justify-between {
-    text-align:center;
-}
-
-.flex items-center justify-between {
-    display: inline-block;
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
 }

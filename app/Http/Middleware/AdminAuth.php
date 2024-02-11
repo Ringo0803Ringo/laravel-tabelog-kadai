@@ -20,7 +20,7 @@ class AdminAuth
     {
         if (Auth::check()) {
             $role = Role::where('user_id', Auth::user()->id)->first();
-            if ($role->role == 1) {
+            if ($role->role == 2) {
                 return back();
             }
         }
