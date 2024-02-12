@@ -8,26 +8,9 @@
 @section('content')
 
 <div class="container">
-    <div class="row text-center">
-        <div class="col-md-6 mx-auto">
-            <h2>店舗検索</h2>
-            <form action="/search" method="GET">
-                <input type="text" name="keyword" placeholder="店舗を検索">
-                <select name="category">
-                    <option value="">カテゴリーが未選択</option>
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit">検索</button>
-                </span>
-            </form>
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <h2>店舗一覧</h2>
+    <div class="row">
+        <div class="col-md-12 mt-2 ms-3">
+            <h3>店舗一覧</h3>
             <!-- 新着店舗はデータベースから取得 -->
             <div class="container">
                 <div class="row">

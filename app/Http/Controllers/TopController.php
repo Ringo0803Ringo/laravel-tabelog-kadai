@@ -50,5 +50,9 @@ class TopController extends Controller
         $categories = Category::all();
 
         return view('top', ['stores' => $stores, 'categories' => $categories]);
+
+        $categories = Category::all();
+
+        return view('layouts.sidebar', ['categories' => $categories]);
     }
 }
