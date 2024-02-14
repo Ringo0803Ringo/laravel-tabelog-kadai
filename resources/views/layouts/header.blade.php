@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
-                    <i class="fa-solid fa-bowl-food"></i>
+                    <i class="fa-solid fa-bowl-food fa-2x"></i>
 
                 </ul>
 
