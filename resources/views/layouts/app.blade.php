@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     @yield('pagecss')
 </head>
 <body style="padding: 60px 0;">
@@ -32,11 +36,11 @@
             
         <main class="py-4">
             <div class="row">
-                <div class="col-12 col-md-9 col-lg-9">
+                <div class="col-12 col-md-8 col-lg-8">
                 @yield('content')
                 </div>
         
-                <div class="col-12 col-md-3 col-lg-3 justify-content-end">
+                <div class="col-12 col-md-4 col-lg-4 justify-content-end">
                 @include('layouts.sidebar')
                 </div>
             </div>

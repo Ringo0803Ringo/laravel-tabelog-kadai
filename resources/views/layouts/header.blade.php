@@ -11,6 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
+                    <i class="fa-solid fa-bowl-food"></i>
 
                 </ul>
 
@@ -49,7 +50,7 @@
                         </li>
                         <li class="nav-item mr-5">
                             <a class="nav-link" href="{{ route('user.show', ['user' => '1']) }}">
-                              <p>ユーザー情報</p>
+                              <p>ユーザー情報<i class="fa-solid fa-user ms-1"></i></p>
                             </a>
                         </li>
                     @endguest
