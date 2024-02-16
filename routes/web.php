@@ -58,10 +58,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/store/create', [StoreController::class, 'create'])->name('store.create');
 
-    Route::middleware(['admin'])->group(function () {
-        Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-        
-    });
 
 });
 

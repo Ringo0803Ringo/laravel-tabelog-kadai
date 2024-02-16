@@ -45,7 +45,7 @@
                 <div class="card-body">
                     <ul>
                         @foreach ($user->favorites as $favorite)
-                        <li><a href="{{ route('store.show', $favorite->id) }}">{{ $favorite->store->name }}</a></li>
+                        <li><a href="{{ route('store.show', $favorite->store_id) }}">{{ $favorite->store->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
