@@ -3,6 +3,8 @@
 use Illuminate\Routing\Router;
 use App\Admin\Controllers\CategoryController; 
 use App\Admin\Controllers\StoreController;
+use App\Admin\Controllers\UserController;
+use App\Admin\Controllers\ReviewController;
 
 
 
@@ -19,6 +21,8 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('categories', CategoryController::class);
     $router->resource('stores', StoreController::class);
+    $router->resource('users', UserController::class);
+    $router->resource('reviews', ReviewController::class);
 
 
 });

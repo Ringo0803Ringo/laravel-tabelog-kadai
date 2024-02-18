@@ -7,7 +7,7 @@
         </span>
         <select name="category">
             <option value="">カテゴリーが未選択</option>
-            {{-- @foreach($categories as $category)
+            {{-- @foreach($categories as $category)  
             <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach --}}
         </select>

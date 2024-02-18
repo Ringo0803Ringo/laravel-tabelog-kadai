@@ -8,6 +8,8 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\CheckoutController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +58,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/booking/{booking}', [BookingController::class, 'show'])->name('booking.show');
     Route::delete('/booking/{booking}/destroy', [BookingController::class, 'destroy'])->name('booking.destroy');
 
-    Route::get('/store/create', [StoreController::class, 'create'])->name('store.create');
+    Route::controller(CheckoutController::class)->group(function () {
+        Route::get('checkout', 'index')->name('checkout.index');
+        Route::post('checkout', 'store')->name('checkout.store');
+        Route::get('checkout/success', 'success')->name('checkout.success');
+    });
 
 
 });
