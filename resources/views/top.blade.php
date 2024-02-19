@@ -20,7 +20,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $store->name }}</h5>
                                     <img src="https://placehold.jp/150x100.png">
-                                    <p class="card-text">{{ $store->description }}</p>
+                                    <p class="card-text">{{ $store->category->name }}</p>
                                 </div>
                                 <a href="{{ route('store.show', $store) }}" class="btn btn-primary">店舗詳細</a>
                             </div>

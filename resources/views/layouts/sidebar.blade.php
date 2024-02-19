@@ -5,6 +5,7 @@
         <span class="input-group-btn">
             <button class="btn btn-success btn-sm" type="submit">検索<i class="fa-solid fa-magnifying-glass fa-lg ms-1"></i></button>
         </span>
+        <div class="w-100"></div>
         <select name="category">
             <option value="">カテゴリーが未選択</option>
             {{-- @foreach($categories as $category)  

@@ -10,7 +10,11 @@
     <div class="row">
         <div class="col-md-8">
             <h2 class="mt-3 mb-4">{{ $store->name }}</h2>
-            <img src="https://placehold.jp/300x200.png">
+            @if ($store->image !== "")
+            <img src="{{ asset($store->image) }}" class="img-thumbnail">
+            @else
+            <img src="{{ asset('https://placehold.jp/300x200.png')}}" class="img-thumbnail">
+            @endif
             <p class="mt-4">{{ $store->description }}</p>
             <p>営業時間：{{$store->business_hour}}</p>
             <p>価格：{{$store->price}}</p>
