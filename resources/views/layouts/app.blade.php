@@ -35,15 +35,7 @@
         @endif
             
         <main class="py-4">
-            <div class="row">
-                <div class="col-8">
                 @yield('content')
-                </div>
-        
-                <div class="col-4 justify-content-end">
-                @include('layouts.sidebar')
-                </div>
-            </div>
         </main>
 
         @include('layouts.footer')

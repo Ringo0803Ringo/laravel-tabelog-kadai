@@ -7,9 +7,9 @@
 
 @section('content')
 
-<div class="container">
+<div class="container-xl">
     <div class="row">
-        <div class="col-md-12 mt-2 ms-3">
+        <div class="col-8 mt-2">
             <h3>店舗一覧</h3>
             <!-- 新着店舗はデータベースから取得 -->
             <div class="container">
@@ -29,6 +29,10 @@
                     {{ $stores->links() }}
                 </div>
             </div>
+        </div>
+        <div class="col-4">
+            @component('layouts.sidebar')
+            @endcomponent
         </div>
     </div>
 </div>
