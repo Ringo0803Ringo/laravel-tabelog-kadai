@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="col-4">
-            @component('layouts.sidebar')
+            @component('layouts.sidebar', ['categories' => $categories])
             @endcomponent
         </div>
     </div>
