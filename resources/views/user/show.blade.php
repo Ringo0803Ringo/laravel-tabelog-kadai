@@ -4,7 +4,32 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mt-3">
+                <div class="card-header">会員ステータス</div>
+                <div class="card-body">
+                    @if (!$user->subscribed('default'))
+                        <!-- 無料会員情報 -->
+                        <h1>無料会員</h1>
+                        <p>有料会員になると、予約やレビュー投稿、お気に入り登録ができます。</p>
+                        <a href="{{route('checkout.index')}}" class="btn btn-primary">有料会員に登録する</a>
+                    @elseif ($user->subscribed('default') && ($user->subscription('default')->ends_at === null || \Carbon\Carbon::parse($user->subscription('default')->ends_at)->lt(now())))
+                        <!-- 有料会員情報 -->
+                        <h1><i class="fa-solid fa-crown"></i>有料会員</h1>
+                        <p>予約やレビュー投稿、お気に入り登録ができます。</p>
+                        <form action="{{ route('subscription.cancel') }}" method="POST">
+                            @csrf
+                            <a href="{{ route('edit_card')}}" class="btn btn-info">お支払方法の変更</a>
+                            <button type="submit" class="btn btn-danger">有料会員を解約する</button>
+                        </form>
+                    @else
+                        <!-- 有料会員情報（有効期限付き） -->
+                        <h1><i class="fa-solid fa-crown"></i>有料会員</h1>
+                        <p>{{ \Carbon\Carbon::parse($user->subscription('default')->ends_at)->format('Y年m月d日') }}まで有効です。</p>
+                    @endif
+                </div>
+            </div>
+
+            <div class="card mt-3">
                 <div class="card-header">ユーザー情報</div>
                 <div class="card-body">
                     <div class="form-group">

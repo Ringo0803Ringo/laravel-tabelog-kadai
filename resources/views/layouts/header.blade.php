@@ -49,7 +49,7 @@
                             </div>
                         </li>
                         <li class="nav-item mr-5">
-                            <a class="nav-link" href="{{ route('user.show', ['user' => '1']) }}">
+                            <a class="nav-link" href="{{ route('user.show', ['user' => Auth::user()]) }}">
                               <p>ユーザー情報<i class="fa-solid fa-user ms-1"></i></p>
                             </a>
                         </li>

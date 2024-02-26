@@ -10,13 +10,13 @@
                     </div>
                 @endif
                 <div class="card">
-                    <div class="card-header">サブスクリプション</div>
+                    <div class="card-header">お支払い方法変更</div>
                     <div class="card-body">
                         <div class="container py-3">
-                            <h3 class="mb-3">ご登録フォーム</h3>
+                            <h3 class="mb-3">カード情報変更</h3>
                             
                             {{-- フォーム部分 --}}
-                            <form action="{{route('checkout.store')}}" method="post" id="payment-form">
+                            <form action="{{route('card.update')}}" method="post" id="payment-form">
                                 @csrf
                                 
                                 <label for="exampleInputEmail1">お名前</label>
@@ -27,7 +27,7 @@
                             
                                 <div id="card-errors" role="alert" style='color:red'></div>
                             
-                                <button class="btn btn-primary mt-4" id="card-button" data-secret="{{ $intent->client_secret }}">有料会員に登録する</button>
+                                <button class="btn btn-primary mt-4" id="card-button" data-secret="{{ $intent->client_secret }}">カード情報変更</button>
                             
                             </form>
                         </div>
@@ -108,3 +108,6 @@
         }
     </script>
 @endsection
+
+
+

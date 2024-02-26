@@ -19,7 +19,11 @@
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $store->name }}</h5>
-                                    <img src="https://placehold.jp/150x100.png">
+                                    @if ($store->image !== "")
+                                    <img src="{{ asset($store->image) }}" class="img-thumbnail">
+                                    @else
+                                    <img src="{{ asset('https://placehold.jp/300x200.png')}}" class="img-thumbnail">
+                                    @endif
                                     <p class="card-text">{{ $store->category->name }}</p>
                                 </div>
                                 <a href="{{ route('store.show', $store) }}" class="btn btn-primary">店舗詳細</a>

@@ -35,7 +35,7 @@ Route::get('/', [TopController::class, 'get_top'])->name('top');
 Route::get('/search', [TopController::class, 'search']);
 Route::get('/store/{store}', [StoreController::class, 'show'])->name('store.show');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // ここにログイン済み＆verify済みのユーザーのみアクセスできるルートを追加
@@ -59,8 +59,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/booking/{booking}/destroy', [BookingController::class, 'destroy'])->name('booking.destroy');
 
     Route::controller(CheckoutController::class)->group(function () {
-        Route::get('checkout', 'index')->name('checkout.index');
-        Route::post('checkout', 'store')->name('checkout.store');
+        Route::get('/checkout', 'index')->name('checkout.index');
+        Route::post('/checkout', 'store')->name('checkout.store');
+        Route::get('/edit_card', 'edit')->name('edit_card');
+        Route::post('/update_card', 'update')->name('card.update');
+        Route::post('/subscription/cancel', 'cancel_subscription')->name('subscription.cancel');
     });
 
 

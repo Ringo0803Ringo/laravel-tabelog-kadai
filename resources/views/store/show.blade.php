@@ -19,7 +19,7 @@
             <p>営業時間：{{$store->business_hour}}</p>
             <p>価格：{{$store->price}}</p>
             <p>郵便番号：{{$store->postal_code}}</p>
-            <p>住所：{{$store->adress}}</p>
+            <p>住所：{{$store->address}}</p>
             <p>電話番号：{{$store->phone_number}}</p>
             <p>定休日：{{$store->holiday}}</p>
 
