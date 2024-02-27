@@ -43,8 +43,8 @@ class BookingController extends Controller
 
         $booking = new Booking();
         $booking->store_id = $request->input('store_id');
-        $booking->booking_date = $request->input('date');
-        $booking->booking_time = $request->input('time');
+        $booking->booking_date = $request->input('booking_date');
+        $booking->booking_time = $request->input('booking_time');
         $booking->amount = $request->input('amount');
         $booking->user_id = Auth::user()->id;
         $booking->save();

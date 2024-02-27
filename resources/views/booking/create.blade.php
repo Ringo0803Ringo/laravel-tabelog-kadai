@@ -2,17 +2,6 @@
  
 @section('content')
 
-
-{{-- @if ($errors->any())
-    <div>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif --}}
-
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -25,21 +14,21 @@
                     @error('booking_date')
                             <strong class="text-danger">日付を入力してください</strong>
                     @enderror
-                    <input type="date" class="form-control" name="date">
+                    <input type="date" class="form-control" name="booking_date" value="{{ old('booking_date') }}">
                 </div>
                 <div class="form-group">
                     <label>時間</label><br>
                     @error('booking_time')
                             <strong class="text-danger">時間を入力してください</strong>
                     @enderror
-                    <input type="time" class="form-control" name="time">
+                    <input type="time" class="form-control" name="booking_time" value="{{ old('booking_time') }}">
                 </div>
                 <div class="form-group">
                     <label>人数</label><br>
                     @error('amount')
                             <strong class="text-danger">人数を入力してください</strong>
                     @enderror
-                    <input type="number" step="1" class="form-control" name="amount">
+                    <input type="number" step="1" class="form-control" name="amount" value="{{ old('amount') }}">
                 </div>
                 <input type="hidden" name="store_id" value="{{$store->id}}">
                 <button type="submit" class="btn btn-primary btn-block mt-3">予約する</button>
