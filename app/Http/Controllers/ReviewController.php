@@ -22,8 +22,15 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Store $store)
+    public function store(Request $request)
     {
+        $request->validate([
+            'content' => 'required'
+        ],
+        [
+            'content.required' => 'レビュー内容を入力してください'
+        ]);
+
         $review = new Review();
         $review->content = $request->input('content');
         $review->store_id = $request->input('store_id');

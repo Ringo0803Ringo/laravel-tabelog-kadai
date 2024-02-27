@@ -6,6 +6,16 @@
 
 @section('content')
 
+@if ($errors->any())
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -80,9 +90,9 @@
                                 <option value="1" class="review-score-color">★</option>
                             </select>
                         </div>
-                        <h4>レビュー内容</h4>
+                        <h4 class="mt-4">レビュー内容</h4>
                         @error('content')
-                            <strong>レビュー内容を入力してください</strong>
+                            <strong class="text-danger">レビュー内容を入力してください</strong>
                         @enderror
                         <textarea name="content" class="form-control"></textarea>
                         <input type="hidden" name="store_id" value="{{$store->id}}">
