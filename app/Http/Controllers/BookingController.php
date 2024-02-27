@@ -30,6 +30,17 @@ class BookingController extends Controller
      */
     public function store(Request $request, Store $store)
     {
+        $request->validate([
+            'booking_date' => 'required',
+            'booking_time' => 'required',
+            'amount' => 'required'
+        ],
+        [
+            'booking_date.required' => '日付を入力してください',
+            'booking_time.required' => '時間を入力してください',
+            'amount.required' => '人数を入力してください'
+        ]);
+
         $booking = new Booking();
         $booking->store_id = $request->input('store_id');
         $booking->booking_date = $request->input('date');
