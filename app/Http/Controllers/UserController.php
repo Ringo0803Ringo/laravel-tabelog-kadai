@@ -38,6 +38,14 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ],
+        [
+            'name.required' => '名前を入力してください',
+            'email.required' => 'メールアドレスを入力してください',
+        ]);
         // TODO: ユーザー情報の更新処理を実装する
         $user->name =$request->name;
         $user->save();
