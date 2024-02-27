@@ -16,7 +16,7 @@
                 <div class="row">
                     @foreach ($stores as $store)
                         <div class="col-md-4">
-                            <div class="card mb-4">
+                            <div class="card mb-2">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $store->name }}</h5>
                                     @if ($store->image !== "")
@@ -26,8 +26,8 @@
                                     @endif
                                     <p class="card-text">{{ $store->category->name }}</p>
                                 </div>
-                                <a href="{{ route('store.show', $store) }}" class="btn btn-primary">店舗詳細</a>
                             </div>
+                            <a href="{{ route('store.show', $store) }}" class="btn btn-primary mb-4 ms-3">店舗詳細</a>
                         </div>
                     @endforeach
                     {{ $stores->links() }}
