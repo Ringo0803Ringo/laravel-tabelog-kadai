@@ -33,7 +33,7 @@
                         <form action="{{ route('review.destroy', $review->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-primary btn-block mt-3" onclick='return confirm("本当に削除しますか？")'>削除</button>
+                            <button type="submit" class="btn btn-primary btn-block mt-3" onclick='return confirm("本当に削除しますか？")'>レビュー削除</button>
                         </form>
                 </div>
             </div>
