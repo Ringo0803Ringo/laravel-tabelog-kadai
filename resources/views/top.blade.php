@@ -11,7 +11,6 @@
     <div class="row">
         <div class="col-8 mt-2">
             <h3>店舗一覧</h3>
-            <!-- 新着店舗はデータベースから取得 -->
             <div class="container">
                 <div class="row">
                     @foreach ($stores as $store)

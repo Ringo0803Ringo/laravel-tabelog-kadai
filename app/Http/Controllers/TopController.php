@@ -7,7 +7,8 @@ use App\Models\Store;
 
 class TopController extends Controller
 {
-    public function get_top() {
+    public function get_top() 
+    {
         $categories = Category::all();
         $stores = Store::all();
         $stores = Store::orderBy('created_at', 'desc')->paginate(3);
@@ -54,5 +55,30 @@ class TopController extends Controller
         $categories = Category::all();
 
         return view('layouts.sidebar', ['categories' => $categories]);
+    }
+
+    public function sort(Request $request)
+    {
+        $sortOption = $request->input('sort', 'name_asc'); // デフォルトは店舗名の昇順
+
+        switch ($sortOption) {
+            case 'name_asc':
+                $stores = Store::orderBy('name', 'asc')->get();
+                break;
+            case 'name_desc':
+                $stores = Store::orderBy('name', 'desc')->get();
+                break;
+            case 'created_at_asc':
+                $stores = Store::orderBy('created_at', 'asc')->get();
+                break;
+            case 'created_at_desc':
+                $stores = Store::orderBy('created_at', 'desc')->get();
+                break;
+            default:
+                $stores = Store::orderBy('name', 'asc')->get();
+                break;
+        }
+
+        return view('layouts.sidebar', compact('stores'));
     }
 }
