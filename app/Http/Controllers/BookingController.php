@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Booking;
 use App\Models\Store;
 use App\Models\User;
+use Carbon\Carbon;
 
 class BookingController extends Controller
 {
@@ -30,8 +31,10 @@ class BookingController extends Controller
      */
     public function store(Request $request, Store $store)
     {
+        $currentTime = Carbon::now();
+
         $request->validate([
-            'booking_date' => 'required',
+            'booking_date' => 'required|after_or_equal:' . $currentTime,
             'booking_time' => 'required',
             'amount' => 'required'
         ],

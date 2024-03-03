@@ -11,13 +11,13 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="rating">日時</label>
+                        <label for="rating">予約日時</label>
                         <p>
                             {{ $booking->booking_date }}
                         </p>
                     </div>
                     <div class="form-group">
-                        <label for="comment">時間</label>
+                        <label for="comment">予約時間</label>
                         <p>
                             {{ $booking->booking_time }}
                         </p>

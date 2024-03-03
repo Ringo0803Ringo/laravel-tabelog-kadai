@@ -6,6 +6,7 @@
 
 @section('content')
 
+
 @if ($errors->any())
     <div>
         <ul>
@@ -15,7 +16,6 @@
         </ul>
     </div>
 @endif
-
 <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -64,7 +64,7 @@
                 <div class="card-header">レビュー最新一覧</div>
                 <div class="card-body">
                     @foreach($reviews as $review)
-                        <label>{{$review->user->name}} {{$review->created_at}}</label>
+                        <label>{{$review->user->name}} {{$review->created_at->toDateString()}}</label>
                         <br>
                         @for ($i = 0; $i < $review->star; $i++)
                         ★
