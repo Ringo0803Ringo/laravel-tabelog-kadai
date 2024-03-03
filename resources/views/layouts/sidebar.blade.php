@@ -13,6 +13,13 @@
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
+            <form action="{{ route('top') }}" method="GET">
+                <select name="sort" onchange="this.form.submit()">
+                    <option value="name_asc">店舗名 昇順</option>
+                    <option value="name_desc">店舗名 降順</option>
+                    <option value="created_at_asc">作成日 昇順</option>
+                    <option value="created_at_desc">作成日 降順</option>
+                </select>
             </form>
         </div>
     </form>
