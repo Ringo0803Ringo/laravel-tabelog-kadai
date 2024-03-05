@@ -32,22 +32,41 @@ class TopController extends Controller
         $keyword = $request->input('keyword');
         $category_id = $request->input('category');
 
+        $sort = $request->sort;
+        if (empty($sort)) {
+            $sort = 'price_asc';
+        }
+        // 文字を_で区切る
+        // name_desc, name_ascのどちらかが入っている
+        $sortArr = explode('_', $sort);
+        // _で区切った配列ができる（nameが入る）
+        $sortKey = $sortArr[0];
+        // _で区切った配列ができる（descもしくはascが入る）
+        $sortValue = $sortArr[1];
+
         if (empty($keyword) && empty($category_id)) {
-            return redirect()->route('top');
+            $stores = Store::orderBy($sortKey, $sortValue)
+                ->paginate(3);
+            $categories = Category::all();
         } else if(empty($keyword) && !empty($category_id)) {
-            $stores = Store::where('category_id', $category_id)->paginate(3);
+            $stores = Store::where('category_id', $category_id)
+                ->orderBy($sortKey, $sortValue)
+                ->paginate(3);
             $categories = Category::all();
             return view('top', ['stores' => $stores, 'categories' => $categories]);
         } else if(!empty($keyword) && empty($category_id)) {
-            $stores = Store::where('name', 'like', '%'.$keyword.'%')->paginate(3);
+            $stores = Store::where('name', 'like', '%'.$keyword.'%')
+                ->orderBy($sortKey, $sortValue)
+                ->paginate(3);
             $categories = Category::all();
             return view('top', ['stores' => $stores, 'categories' => $categories]);
-        }
-        
-        $stores = Store::where('name', 'like', '%'.$keyword.'%')
+        } else {    
+            $stores = Store::where('name', 'like', '%'.$keyword.'%')
             ->where('category_id', $category_id)
+            ->orderBy($sortKey, $sortValue)
             ->paginate(3);
-
+        }
+    
         $categories = Category::all();
 
         return view('top', ['stores' => $stores, 'categories' => $categories]);
@@ -55,30 +74,5 @@ class TopController extends Controller
         $categories = Category::all();
 
         return view('layouts.sidebar', ['categories' => $categories]);
-    }
-
-    public function sort(Request $request)
-    {
-        $sortOption = $request->input('sort', 'name_asc'); // デフォルトは店舗名の昇順
-
-        switch ($sortOption) {
-            case 'name_asc':
-                $stores = Store::orderBy('name', 'asc')->get();
-                break;
-            case 'name_desc':
-                $stores = Store::orderBy('name', 'desc')->get();
-                break;
-            case 'created_at_asc':
-                $stores = Store::orderBy('created_at', 'asc')->get();
-                break;
-            case 'created_at_desc':
-                $stores = Store::orderBy('created_at', 'desc')->get();
-                break;
-            default:
-                $stores = Store::orderBy('name', 'asc')->get();
-                break;
-        }
-
-        return view('layouts.sidebar', compact('stores'));
     }
 }
