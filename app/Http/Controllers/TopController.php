@@ -47,32 +47,29 @@ class TopController extends Controller
         if (empty($keyword) && empty($category_id)) {
             $stores = Store::orderBy($sortKey, $sortValue)
                 ->paginate(3);
-            $categories = Category::all();
         } else if(empty($keyword) && !empty($category_id)) {
             $stores = Store::where('category_id', $category_id)
                 ->orderBy($sortKey, $sortValue)
                 ->paginate(3);
-            $categories = Category::all();
-            return view('top', ['stores' => $stores, 'categories' => $categories]);
         } else if(!empty($keyword) && empty($category_id)) {
             $stores = Store::where('name', 'like', '%'.$keyword.'%')
                 ->orderBy($sortKey, $sortValue)
                 ->paginate(3);
-            $categories = Category::all();
-            return view('top', ['stores' => $stores, 'categories' => $categories]);
         } else {    
             $stores = Store::where('name', 'like', '%'.$keyword.'%')
             ->where('category_id', $category_id)
             ->orderBy($sortKey, $sortValue)
             ->paginate(3);
         }
-    
-        $categories = Category::all();
-
-        return view('top', ['stores' => $stores, 'categories' => $categories]);
 
         $categories = Category::all();
 
-        return view('layouts.sidebar', ['categories' => $categories]);
+        return view('top', [
+            'stores' => $stores,
+            'categories' => $categories,
+            'keyword' => $keyword,
+            'category_id' => $category_id,
+            'sort' => $sort
+        ]);
     }
 }

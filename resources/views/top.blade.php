@@ -29,7 +29,7 @@
                             <a href="{{ route('store.show', $store) }}" class="btn btn-primary mb-4 ms-3">店舗詳細</a>
                         </div>
                     @endforeach
-                    {{ $stores->links() }}
+                    {{ $stores->appends(request()->except('page'))->links() }}
                 </div>
             </div>
         </div>
