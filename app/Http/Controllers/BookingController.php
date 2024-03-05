@@ -39,6 +39,7 @@ class BookingController extends Controller
             'amount' => 'required'
         ],
         [
+            'booking_date.after_or_equal' => '本日以降の日付を選択してください',
             'booking_date.required' => '日付を入力してください',
             'booking_time.required' => '時間を入力してください',
             'amount.required' => '人数を入力してください'
