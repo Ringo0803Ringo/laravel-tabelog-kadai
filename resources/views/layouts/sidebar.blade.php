@@ -15,7 +15,7 @@
             </select>
             <select name="sort" onchange="this.form.submit()">
                 <option value="price_asc">価格が安い順</option>
-                <option value="price_desc">価格が高い順<</option>
+                <option value="price_desc">価格が高い順</option>
             </select>
         </div>
     </form>
