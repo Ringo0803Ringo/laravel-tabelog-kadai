@@ -15,7 +15,10 @@ class TopController extends Controller
 
         return view('top', [
             'categories' => $categories,
-            'stores' => $stores
+            'stores' => $stores,
+            'keyword' => $keyword ?? '',
+            'category_id' => $category_id ?? '',
+            'sort' => $sort ?? ''
         ]);
     }
     /**
@@ -67,9 +70,9 @@ class TopController extends Controller
         return view('top', [
             'stores' => $stores,
             'categories' => $categories,
-            'keyword' => $keyword,
-            'category_id' => $category_id,
-            'sort' => $sort
+            'keyword' => $keyword ?? '',
+            'category_id' => $category_id ?? '',
+            'sort' => $sort ?? ''
         ]);
     }
 }
