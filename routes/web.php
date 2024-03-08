@@ -9,6 +9,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CompanyController;
 
 
 /*
@@ -34,6 +35,7 @@ use App\Http\Controllers\CheckoutController;
 Route::get('/', [TopController::class, 'get_top'])->name('top');
 Route::get('/search', [TopController::class, 'search']);
 Route::get('/store/{store}', [StoreController::class, 'show'])->name('store.show');
+Route::get('/company', [CompanyController::class, 'company'])->name('company');
 
 Auth::routes(['verify' => true]);
 

@@ -24,7 +24,7 @@ class StoreSeeder extends Seeder
                 'business_hour' => '10:00~20:00',
                 'price' => rand(1000, 5000),
                 'postal_code' => '150-0043',
-                'address' => '東京都渋谷区道玄坂' . $i . '-1-1',
+                'address' => '愛知県名古屋市中央' . $i . '-1-1',
                 'phone_number' => '090-1234-567' . $i,
                 'category_id' => rand(1, 5),
                 'holiday' => '毎週月曜日'
