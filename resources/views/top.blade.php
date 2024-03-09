@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('pagecss')
-{{-- top pageで使うCSS --}}
+
 <link rel="stylesheet" href="{{ asset('css/top.css') }}">
 @endsection
 
