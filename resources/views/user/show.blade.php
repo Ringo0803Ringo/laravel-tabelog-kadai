@@ -11,7 +11,7 @@
                         <!-- 無料会員情報 -->
                         <h1>無料会員</h1>
                         <p>有料会員になると、予約やレビュー投稿、お気に入り登録ができます。</p>
-                        <a href="{{route('checkout.index')}}" class="btn btn-primary">有料会員に登録する</a>
+                        <a href="{{ route('checkout.index') }}" class="btn btn-primary">有料会員に登録する</a>
                     @elseif ($user->subscribed('default') && ($user->subscription('default')->ends_at === null || \Carbon\Carbon::parse($user->subscription('default')->ends_at)->lt(now())))
                         <!-- 有料会員情報 -->
                         <h1><i class="fa-solid fa-crown"></i>有料会員</h1>

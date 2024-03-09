@@ -55,7 +55,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('company') }}">
-                              <p>会社情報</p>
+                              <p>会社情報<i class="fa-solid fa-building ms-1"></i></p>
                             </a>
                         </li>
                     @endguest
