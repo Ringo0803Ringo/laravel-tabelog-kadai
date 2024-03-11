@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReviewController;
@@ -21,15 +20,6 @@ use App\Http\Controllers\CompanyController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-/** 
- * Route::HTTPメソッド(パス, [コントローラー名::class, アクション名])->name('ルート名');
- * 
- * 【 HTTPメソッド: GET, POST, PUT, PATCH, DELETE 】
- * ・ GET: データの取得・ページの表示
- * ・　POST: データの登録
- * ・　PUT＆PATCH: データの更新
- * ・　DELETE: データの削除
 */
 
 Route::get('/', [TopController::class, 'get_top'])->name('top');
@@ -67,5 +57,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/update_card', 'update')->name('card.update');
         Route::post('/subscription/cancel', 'cancel_subscription')->name('subscription.cancel');
     });
-    
+
 });
