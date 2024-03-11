@@ -67,7 +67,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/update_card', 'update')->name('card.update');
         Route::post('/subscription/cancel', 'cancel_subscription')->name('subscription.cancel');
     });
-
-
+    
 });
-
