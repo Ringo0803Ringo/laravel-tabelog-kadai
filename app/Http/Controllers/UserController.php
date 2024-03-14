@@ -45,10 +45,10 @@ class UserController extends Controller
             'name.required' => '名前を入力してください',
             'email.required' => 'メールアドレスを入力してください',
         ]);
-        // TODO: ユーザー情報の更新処理を実装する
-        $user->name =$request->name;
+        
+        $user->name = $request->name;
         $user->save();
-        // リダイレクト処理(messeageをつける)
+        
         return redirect()->route('top')->with('success', 'ユーザー情報を変更しました');
     }
 
