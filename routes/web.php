@@ -24,7 +24,6 @@ use App\Http\Controllers\CompanyController;
 
 Route::get('/', [TopController::class, 'get_top'])->name('top');
 Route::get('/search', [TopController::class, 'search']);
-Route::get('/store/{store}', [StoreController::class, 'show'])->name('store.show');
 Route::get('/company', [CompanyController::class, 'company'])->name('company');
 
 Auth::routes(['verify' => true]);
@@ -49,6 +48,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/booking/{store}', [BookingController::class, 'store'])->name('booking.store');
     Route::get('/booking/{booking}', [BookingController::class, 'show'])->name('booking.show');
     Route::delete('/booking/{booking}/destroy', [BookingController::class, 'destroy'])->name('booking.destroy');
+
+    Route::get('/store/{store}', [StoreController::class, 'show'])->name('store.show');
 
     Route::controller(CheckoutController::class)->group(function () {
         Route::get('/checkout', 'index')->name('checkout.index');
