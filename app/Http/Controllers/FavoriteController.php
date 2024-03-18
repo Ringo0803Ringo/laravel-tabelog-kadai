@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
 use App\Models\Store;
+use App\Models\User;
 
 class FavoriteController extends Controller
 {
@@ -22,8 +23,15 @@ class FavoriteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Store $store)
+    public function store(Request $request)
     {
+        $user = User::find(Auth::id());
+
+        if (!$user->subscribed('default')) {
+
+        return redirect()->back()->with('success', '有料会員でないため、お気に入り登録はできません。');
+        }
+
         $favorite = new Favorite();
         $favorite->store_id = $request->input('store_id');
         $favorite->user_id = Auth::user()->id;

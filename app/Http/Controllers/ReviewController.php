@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Review;
+use App\Models\User;
 
 class ReviewController extends Controller
 {
@@ -22,6 +23,13 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
+        $user = User::find(Auth::id());
+
+        if (!$user->subscribed('default')) {
+
+        return redirect()->back()->with('success', '有料会員でないため、レビューはできません。');
+        }
+
         $request->validate([
             'content' => 'required'
         ],

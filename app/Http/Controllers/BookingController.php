@@ -31,6 +31,13 @@ class BookingController extends Controller
      */
     public function store(Request $request, Store $store)
     {
+        $user = User::find(Auth::id());
+
+        if (!$user->subscribed('default')) {
+
+        return redirect()->back()->with('success', '有料会員でないため、予約はできません。');
+        }
+
         $currentTime = Carbon::now();
 
         $request->validate([
