@@ -42,7 +42,17 @@ class BookingController extends Controller
 
         $request->validate([
             'booking_date' => 'required|after_or_equal:' . $currentTime,
-            'booking_time' => 'required',
+            'booking_time' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    $startTime = Carbon::createFromFormat('H:i', '10:00');
+                    $endTime = Carbon::createFromFormat('H:i', '20:00');
+                    $bookingTime = Carbon::createFromFormat('H:i', $value);
+                    if ($bookingTime->lt($startTime) || $bookingTime->gt($endTime)) {
+                        $fail('営業時間内でなければなりません');
+                    }
+                },
+            ],
             'amount' => 'required'
         ],
         [
